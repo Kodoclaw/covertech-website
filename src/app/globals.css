@@ -122,8 +122,14 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* Kanit — full font for both Thai and Latin */
+    font-family: var(--font-kanit), 'Kanit', sans-serif;
   }
   html {
     @apply font-sans;
   }
+}
+
+.font-kanit {
+  font-family: var(--font-kanit), 'Kanit', sans-serif;
 }
