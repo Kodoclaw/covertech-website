@@ -1,6 +1,4 @@
-"use client";
 
-import { useLang } from "@/context/LangContext";
 import LineOACTA from "@/components/LineOACTA";
 
 const pillars = [
@@ -12,8 +10,13 @@ const pillars = [
   { icon: "🔬", th: "ผู้เชี่ยวชาญเฉพาะด้านผ้าใบ PVC", en: "PVC Tarpaulin Specialist" },
 ];
 
-export default function AboutPage() {
-  const { lang } = useLang();
+export async function generateStaticParams() {
+  return [{ lang: "th" }, { lang: "en" }];
+}
+
+export default async function AboutPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang: langRaw } = await params;
+  const lang = langRaw as "th" | "en";
 
   return (
     <>

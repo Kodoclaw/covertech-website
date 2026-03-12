@@ -1,7 +1,5 @@
-"use client";
 
 import { notFound } from "next/navigation";
-import { useLang } from "@/context/LangContext";
 import LineOACTA from "@/components/LineOACTA";
 
 const productData: Record<string, {
@@ -90,9 +88,10 @@ const productData: Record<string, {
   },
 };
 
-export default function ProductPage({ params }: { params: { slug: string } }) {
-  const { lang } = useLang();
-  const product = productData[params.slug];
+export default async function ProductPage({ params }: { params: Promise<{ lang: string; slug: string }> }) {
+  const { lang: langRaw, slug } = await params;
+  const lang = langRaw as "th" | "en";
+  const product = productData[slug];
 
   if (!product) notFound();
 
@@ -181,4 +180,10 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       </section>
     </>
   );
+}
+
+export async function generateStaticParams() {
+  const langs = ["th", "en"];
+  const slugs = ["phaxbai-kansat-eco", "phaxbai-standard", "tent-pvc", "solarview-mesh"];
+  return langs.flatMap(lang => slugs.map(slug => ({ lang, slug })));
 }

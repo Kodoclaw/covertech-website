@@ -1,7 +1,5 @@
-"use client";
 
 import Link from "next/link";
-import { useLang } from "@/context/LangContext";
 import LineOACTA from "@/components/LineOACTA";
 
 const products = [
@@ -51,8 +49,13 @@ const products = [
   },
 ];
 
-export default function ProductsPage() {
-  const { lang } = useLang();
+export async function generateStaticParams() {
+  return [{ lang: "th" }, { lang: "en" }];
+}
+
+export default async function ProductsPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang: langRaw } = await params;
+  const lang = langRaw as "th" | "en";
 
   return (
     <>

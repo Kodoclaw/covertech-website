@@ -1,6 +1,4 @@
-"use client";
 
-import { useLang } from "@/context/LangContext";
 import LineOACTA from "@/components/LineOACTA";
 
 const faqs = [
@@ -66,8 +64,13 @@ const faqs = [
   },
 ];
 
-export default function FAQPage() {
-  const { lang } = useLang();
+export async function generateStaticParams() {
+  return [{ lang: "th" }, { lang: "en" }];
+}
+
+export default async function FAQPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang: langRaw } = await params;
+  const lang = langRaw as "th" | "en";
 
   return (
     <>

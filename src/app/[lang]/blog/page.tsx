@@ -1,6 +1,4 @@
-"use client";
 
-import { useLang } from "@/context/LangContext";
 import LineOACTA from "@/components/LineOACTA";
 
 const upcomingTopics = [
@@ -11,8 +9,13 @@ const upcomingTopics = [
   { th: "SolarView Mesh คืออะไร และเหมาะกับใคร?", en: "What is SolarView Mesh and who is it for?" },
 ];
 
-export default function BlogPage() {
-  const { lang } = useLang();
+export async function generateStaticParams() {
+  return [{ lang: "th" }, { lang: "en" }];
+}
+
+export default async function BlogPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang: langRaw } = await params;
+  const lang = langRaw as "th" | "en";
 
   return (
     <>

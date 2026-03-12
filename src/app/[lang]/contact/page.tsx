@@ -1,10 +1,13 @@
-"use client";
 
 import Image from "next/image";
-import { useLang } from "@/context/LangContext";
 
-export default function ContactPage() {
-  const { lang } = useLang();
+export async function generateStaticParams() {
+  return [{ lang: "th" }, { lang: "en" }];
+}
+
+export default async function ContactPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang: langRaw } = await params;
+  const lang = langRaw as "th" | "en";
 
   return (
     <>

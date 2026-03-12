@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Kanit } from "next/font/google";
 import "./globals.css";
-import LayoutShell from "@/components/LayoutShell";
 
 const kanit = Kanit({
   subsets: ["thai", "latin"],
@@ -58,7 +57,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased bg-white text-gray-900">
-        <LayoutShell>{children}</LayoutShell>
+        {children}
       </body>
     </html>
   );
