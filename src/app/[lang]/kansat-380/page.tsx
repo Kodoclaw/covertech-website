@@ -62,7 +62,6 @@ const specs = {
     ["สีที่มี", "9 สี"],
     ["อุปกรณ์รวม", "เชือกไนล่อน, ลูกรอก, สกรู, อุปกรณ์ยึด"],
     ["ไม่รวม", "เหล็ก/ท่อ (ซื้อได้ที่ร้านวัสดุก่อสร้าง)"],
-    ["SKU", "LM38"],
   ],
   en: [
     ["Material", "Fiberglass PVC Grade A"],
@@ -73,7 +72,6 @@ const specs = {
     ["Colors", "9 colors"],
     ["Included", "Nylon rope, pulley, screws, mounting hardware"],
     ["Not included", "Steel pipe (available at hardware stores)"],
-    ["SKU", "LM38"],
   ],
 };
 
