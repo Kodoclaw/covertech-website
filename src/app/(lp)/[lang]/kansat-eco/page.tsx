@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import Footer from "@/components/Footer";
 
 const LINE_URL = "https://lin.ee/RTwFE2S";
 
@@ -446,6 +447,9 @@ export default async function Kansat380Page({
           </p>
         </div>
       </section>
+
+      {/* Footer */}
+      <Footer lang={isTh ? "th" : "en"} />
     </>
   );
 }

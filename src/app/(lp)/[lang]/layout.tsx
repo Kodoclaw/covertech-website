@@ -1,6 +1,10 @@
-import Footer from "@/components/Footer";
+import { notFound } from "next/navigation";
 
-export default async function Kansat380Layout({
+export async function generateStaticParams() {
+  return [{ lang: "th" }, { lang: "en" }];
+}
+
+export default async function LpLangLayout({
   children,
   params,
 }: {
@@ -8,12 +12,11 @@ export default async function Kansat380Layout({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
-  const validLang = lang === "en" ? "en" : "th";
+  if (!["th", "en"].includes(lang)) notFound();
 
   return (
     <div className="min-h-screen flex flex-col font-kanit">
       <main className="flex-1">{children}</main>
-      <Footer lang={validLang} />
     </div>
   );
 }
