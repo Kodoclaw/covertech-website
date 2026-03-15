@@ -111,9 +111,9 @@ async function main() {
   console.log(`✓ Inserted ${inserted} rows to seo_rankings`);
 
   // --- Discord summary ---
-  const webhookUrl = process.env.DISCORD_WEBHOOK_WEBSITE;
+  const webhookUrl = process.env.DISCORD_WEBHOOK_SEO;
   if (!webhookUrl) {
-    console.warn('⚠ DISCORD_WEBHOOK_WEBSITE not set — skipping notification');
+    console.warn('⚠ DISCORD_WEBHOOK_SEO not set — skipping notification');
     return;
   }
 
