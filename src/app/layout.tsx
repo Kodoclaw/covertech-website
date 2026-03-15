@@ -10,6 +10,9 @@ const kanit = Kanit({
 });
 
 export const metadata: Metadata = {
+  verification: {
+    google: "lYYm-WZgKWEFrqawyxIla021JJtHOFUsta5z_tq7NtQ",
+  },
   title: "คัฟเวอร์เทค | ผู้เชี่ยวชาญผ้าใบ PVC ครบวงจร",
   description:
     "ผู้เชี่ยวชาญผ้าใบ PVC ครบวงจร ผลิตเองในไทย กว่า 15 ปี รับสั่งตัดขนาด บริการหลังการขาย รับประกัน 100%",
